@@ -118,6 +118,15 @@ function categoria_recomendacion_hibrida (recomendacion){
     return recomendacion.categoria != "Ninguna"
 }
 
+let nombre= document.getElementById("nombre");
+let botonSaludar = document.getElementById ("boton_saludar");
+botonSaludar.addEventListener("click", function (){
+    let saludo = document.createElement ("p");
+    saludo.innerHTML = "<p> Bienvenido</p>";
+    saludo_box.append(saludo, nombre.value);
+
+
+
 
 let distancia = parseInt(document.getElementById("distancia").value);
 let VAM = parseInt(document.getElementById("VAM").value);
