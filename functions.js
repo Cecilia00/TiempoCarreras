@@ -126,21 +126,14 @@ botonSaludar.addEventListener("click", function (){
     saludo_box.append(saludo, nombre.value);
     })
 
-
-
-
-let distancia = parseInt(document.getElementById("distancia").value);
-let VAM = parseInt(document.getElementById("VAM").value);
 let botonCalcular = document.getElementById ("boton_calcular");
 
-
-botonCalcular.addEventListener("click", function (distancia, VAM){
+botonCalcular.addEventListener("click", function (){
     let option = parseInt (prompt (modalidad))
+    let distancia = parseInt(document.getElementById("distancia").value);
+    let VAM = parseInt(document.getElementById("VAM").value);
     switch (option) {
         case 1: 
-            // let distancia = prompt ("Ingresa la distancia a recorrer en km");
-            // let VAM = prompt ("Ingresa el tiempo en que recorres un km a máxima velocidad en minutos");
-
             console.log(distancia);
             console.log(VAM);
 
@@ -150,34 +143,38 @@ botonCalcular.addEventListener("click", function (distancia, VAM){
             document.body.append(mensajeResultadoCalle);
 
             let recomendacion_filter_calle = recomendacion.filter (categoria_recomendacion_calle);
-            console.log(recomendacion_filter_calle);
-            break;
+            recomendacion_filter_calle.forEach (el => {
+                let recomendacionFinal = document.createElement ("p");
+                recomendacionFinal = el.nombre + el.link;
+                document.body.append(recomendacionFinal);
+            })
 
-        case 2: 
-
-            // let distancia = prompt ("Ingresa la distancia a recorrer en km");
-            // let VAM = prompt ("Ingresa el tiempo en que recorres un km a máxima velocidad en minutos");
-
+        case 2:
             let mensajeResultadoTrail = document.createElement ("p");
             mensajeResultadoTrail = calcularTiempoTrail (distancia,VAM);
             document.body.append(mensajeResultadoTrail);
 
             let recomendacion_filter_trail = recomendacion.filter (categoria_recomendacion_trail);
-            console.log(recomendacion_filter_trail);
+            recomendacion_filter_trail.forEach (el => {
+                let recomendacionFinal = document.createElement ("p");
+                recomendacionFinal = el.nombre + el.link;
+                document.body.append(recomendacionFinal);
+            })
+            
             
             break;
 
         case 3: 
-            
-            // let distancia = prompt ("Ingresa la distancia a recorrer en km");
-            // let VAM = prompt ("Ingresa el tiempo en que recorres un km a máxima velocidad en minutos");
-
             let mensajeResultadoHibrido = document.createElement ("p");
             mensajeResultadoHibrido = calcularTiempoHibrido (distancia,VAM);
             document.body.append(mensajeResultadoHibrido);
 
             let recomendacion_filter_hibrida = recomendacion.filter (categoria_recomendacion_hibrida);
-            console.log(recomendacion_filter_hibrida);
+            recomendacion_filter_hibrida.forEach (el => {
+                let recomendacionPrueba = document.createElement ("p");
+                recomendacionPrueba = el.nombre + el.link;
+                document.body.append(recomendacionPrueba);
+            })
             
         case 4:
             break;
