@@ -124,6 +124,7 @@ botonSaludar.addEventListener("click", function (){
     let saludo = document.createElement ("p");
     saludo.innerHTML = "<p> Bienvenido</p>";
     saludo_box.append(saludo, nombre.value);
+    })
 
 
 
