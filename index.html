@@ -16,18 +16,26 @@
             <input type="text" id="nombre" class="saludo"> 
             <button id="boton_saludar" class="saludo">Saludar</button>
         </div>    
-        <div>
+        <div class="formulario_calculadora">
             <h2>Empecemos con el pronóstico</h2>
             <p>Ingresa el tiempo en que recorres un km a máxima velocidad en minutos</p>
             <input type="number" id="VAM"> 
             <p>Ingresa la distancia a recorrer en km</p>
             <input type="number" id="distancia">
+            <p>Ingresa 1,2,3 según la modalidad</p>
+            <ul>
+                <li>1- Calle</li>
+                <li>2- Trail</li>
+                <li>3- Híbrido</li>
+            </ul>
+            <input type="number" id="modalidad">
             <button id="boton_calcular">Calcular</button>
         </div>
 
-        <div class="Resultado">
-            <h2>Vas a tardar...</h2>
-        </div>
+        <div id="Resultado"></div>
+        <div id="Recomendacion"></div>
+
+
     </main>
     <script src="functions.js"></script>
 </body>

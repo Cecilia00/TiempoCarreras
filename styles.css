@@ -1,11 +1,20 @@
-body{
-    background-color: plum;
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+    body{
+    background-color: #feeafa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 
 .h1_header{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   font-size: 1.4rem;
+  padding: 15px;
 }
 #saludo_box{
     display: inline;
@@ -18,9 +27,26 @@ body{
 #nombre{
     display: block;
 }
-#boton_saludar{
-    display: block;
+
+.formulario_calculadora{
+    margin: 20px;
+    background-color: #cbc0d3;
     border-radius: 15px;
-    box-shadow:rgb(86, 84, 84);
-    padding: 3px 5px;
+    padding: 8px 5px;
+}
+
+#Resultado{
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 15px;
+    background-color: #cbc0d3;
+    font-size: 1.1rem;
+}
+
+
+#boton_calcular{
+    border-radius: 10px;
+    padding: 5px 12px;
+    background-color: white;
+    border-color: #8e9aaf ;
 }

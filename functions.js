@@ -129,56 +129,50 @@ botonSaludar.addEventListener("click", function (){
 let botonCalcular = document.getElementById ("boton_calcular");
 
 botonCalcular.addEventListener("click", function (){
-    let option = parseInt (prompt (modalidad))
-    let distancia = parseInt(document.getElementById("distancia").value);
-    let VAM = parseInt(document.getElementById("VAM").value);
-    switch (option) {
+let option = parseInt (document.getElementById("modalidad").value)
+let distancia = parseInt(document.getElementById("distancia").value);
+let VAM = parseInt(document.getElementById("VAM").value);
+   
+switch (option) {
         case 1: 
             console.log(distancia);
             console.log(VAM);
 
-
-            let mensajeResultadoCalle = document.createElement ("p");
-            mensajeResultadoCalle = calcularTiempoCalle (distancia,VAM);
-            document.body.append(mensajeResultadoCalle);
+            let mensajeResultadoCalle = document.getElementById("Resultado");
+            mensajeResultadoCalle.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
 
             let recomendacion_filter_calle = recomendacion.filter (categoria_recomendacion_calle);
             recomendacion_filter_calle.forEach (el => {
-                let recomendacionFinal = document.createElement ("p");
-                recomendacionFinal = el.nombre + el.link;
-                document.body.append(recomendacionFinal);
+                let recomendacionFinal = document.getElementById ("Recomendacion");
+                recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
             })
+            break;
 
         case 2:
-            let mensajeResultadoTrail = document.createElement ("p");
-            mensajeResultadoTrail = calcularTiempoTrail (distancia,VAM);
-            document.body.append(mensajeResultadoTrail);
+            let mensajeResultadoTrail= document.getElementById("Resultado");
+            mensajeResultadoTrail.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
 
             let recomendacion_filter_trail = recomendacion.filter (categoria_recomendacion_trail);
             recomendacion_filter_trail.forEach (el => {
-                let recomendacionFinal = document.createElement ("p");
-                recomendacionFinal = el.nombre + el.link;
-                document.body.append(recomendacionFinal);
+                let recomendacionFinal = document.getElementById ("Recomendacion");
+                recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
             })
             
             
             break;
 
-        case 3: 
-            let mensajeResultadoHibrido = document.createElement ("p");
-            mensajeResultadoHibrido = calcularTiempoHibrido (distancia,VAM);
-            document.body.append(mensajeResultadoHibrido);
+        case 3:            
+            let mensajeResultadoHibrido = document.getElementById("Resultado");
+            mensajeResultadoHibrido.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
 
             let recomendacion_filter_hibrida = recomendacion.filter (categoria_recomendacion_hibrida);
             recomendacion_filter_hibrida.forEach (el => {
-                let recomendacionPrueba = document.createElement ("p");
-                recomendacionPrueba = el.nombre + el.link;
-                document.body.append(recomendacionPrueba);
+                let recomendacionFinal = document.getElementById ("Recomendacion");
+                recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
             })
             
-        case 4:
-            break;
-        
+            break; 
+
         default: 
             alert ("opcion invalida");
             break;
