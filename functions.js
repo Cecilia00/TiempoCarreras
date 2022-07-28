@@ -1,3 +1,5 @@
+// DECLARACIÓN DE ARRAYS
+
 const modalidad = ["1-calle", "2-trail", "3-hibrido", "4-salir"]
 const recomendacion = [
     {
@@ -26,7 +28,11 @@ const recomendacion = [
         link:"Otro",
 
     }]
+const array_sugerencias = [];
 
+// DECLARACIÓN DE FUNCIONES 
+
+// FUNCIONES CALCULO 
 
 function calcularTiempoTrail (distancia,VAM){
     if (distancia <= 5){ 
@@ -106,6 +112,8 @@ function calcularTiempoHibrido (distancia,VAM){
     }
 }
 
+// FUNCIONES RECOMENDACIONES 
+
 function categoria_recomendacion_calle (recomendacion){
     return recomendacion.categoria == "Calle"
 }
@@ -118,44 +126,41 @@ function categoria_recomendacion_hibrida (recomendacion){
     return recomendacion.categoria != "Ninguna"
 }
 
-let nombre= document.getElementById("nombre");
-let botonSaludar = document.getElementById ("boton_saludar");
-botonSaludar.addEventListener("click", function (){
-    let saludo = document.createElement ("p");
-    saludo.innerHTML = "<p> Bienvenido</p>";
-    saludo_box.append(saludo, nombre.value);
-    })
+// DECLARACION DE BOTONES
 
+// BOTONES CALCULO 
 let botonCalcular = document.getElementById ("boton_calcular");
 
 botonCalcular.addEventListener("click", function (){
-let option = parseInt (document.getElementById("modalidad").value)
-let distancia = parseInt(document.getElementById("distancia").value);
-let VAM = parseInt(document.getElementById("VAM").value);
-   
-switch (option) {
+    let option = parseInt (document.getElementById("modalidad").value)
+    let distancia = parseInt(document.getElementById("distancia").value);
+    let VAM = parseInt(document.getElementById("VAM").value);
+    
+    switch (option) {
         case 1: 
-            console.log(distancia);
-            console.log(VAM);
-
             let mensajeResultadoCalle = document.getElementById("Resultado");
             mensajeResultadoCalle.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
+            mensajeResultadoCalle.className =  "div_resultadoActive";            
 
             let recomendacion_filter_calle = recomendacion.filter (categoria_recomendacion_calle);
             recomendacion_filter_calle.forEach (el => {
                 let recomendacionFinal = document.getElementById ("Recomendacion");
                 recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
+                recomendacionFinal.className =  "div_recomendacionActive";
             })
+
             break;
 
         case 2:
             let mensajeResultadoTrail= document.getElementById("Resultado");
             mensajeResultadoTrail.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
+            mensajeResultadoTrail.className =  "div_resultadoActive";           
 
             let recomendacion_filter_trail = recomendacion.filter (categoria_recomendacion_trail);
             recomendacion_filter_trail.forEach (el => {
                 let recomendacionFinal = document.getElementById ("Recomendacion");
                 recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
+                recomendacionFinal.className =  "div_recomendacionActive";
             })
             
             
@@ -164,11 +169,14 @@ switch (option) {
         case 3:            
             let mensajeResultadoHibrido = document.getElementById("Resultado");
             mensajeResultadoHibrido.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
+            mensajeResultadoHibrido.className =  "div_resultadoActive";            
+
 
             let recomendacion_filter_hibrida = recomendacion.filter (categoria_recomendacion_hibrida);
             recomendacion_filter_hibrida.forEach (el => {
                 let recomendacionFinal = document.getElementById ("Recomendacion");
                 recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
+                recomendacionFinal.className =  "div_recomendacionActive";
             })
             
             break; 
@@ -178,3 +186,48 @@ switch (option) {
             break;
     }
 });
+
+// BOTONES SUGERENCIAS 
+
+let botonHabilitarSugerencia = document.getElementById ("boton_habilitar_sugerencia");
+
+botonHabilitarSugerencia.addEventListener("click", function (){
+    let formularioSugerencia = document.getElementById("Sugerencia");
+    formularioSugerencia.className =  "div_sugerenciaActive";
+    botonHabilitarSugerencia.remove();
+});
+
+let botonEnviarSugerencia = document.getElementById("boton_enviar_sugerencia");
+
+botonEnviarSugerencia.addEventListener("click", function(){
+    let nombreSugerencia = document.getElementById ("sugerencia_nombre");
+    let modalidadSugerencia = document.getElementById ("sugerencia_modalidad");
+    let autorSugerencia = document.getElementById ("sugerencia_autor");
+    let linkSugerencia = document.getElementById ("sugerencia_link");
+    let sugerencias ={ "nombre": nombreSugerencia.value, 
+                      "modalidad": modalidadSugerencia.value,
+                      "autor": autorSugerencia.value,
+                      "link": linkSugerencia.value,
+                    }
+
+    let sugerencias_JSON = JSON.stringify (sugerencias);
+    array_sugerencias.push(sugerencias_JSON);
+    localStorage.setItem("sugerencias", array_sugerencias );
+});
+
+// let botonVerSugerencia = document.getElementById("boton_ver_sugerencia");
+
+// botonVerSugerencia.addEventListener("click", function(){
+//     let sugerenciasEnviadas = localStorage.getItem("sugerencias");
+//     for (let sugerencia of sugerenciasEnviadas){
+//         console.log(sugerencia)
+//     }})
+//     ; 
+
+//    sugerenciasEnviadas.forEach (el => {
+//        let listaSugerenciasEnviadas = document.createElement("sugerenciasEnviadas");
+//        listaSugerenciasEnviadas.innerHTML = ("Nos recomendaste: ") + el.nombre +  el.autor + el.modalidad + el.link;
+//        console.log(listaSugerenciasEnviadas);
+//        Sugerencias_enviadas.append(listaSugerenciasEnviadas);
+//      })
+

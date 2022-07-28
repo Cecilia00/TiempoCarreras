@@ -3,50 +3,76 @@
     padding: 0px;
     box-sizing: border-box;
 }
+.header{
+    background-color: white ;
+}
 
-    body{
-    background-color: #feeafa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body{
+    background-color:  #d3d7d6;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
 
 .h1_header{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   font-size: 1.4rem;
   padding: 15px;
+  color: #295135;
 }
-#saludo_box{
-    display: inline;
-    display: flex;
-    justify-content: center;
-    background-color: aliceblue;
-    border-radius: 20px;
-    padding: 15px 0px;
-}
+
 #nombre{
     display: block;
 }
 
 .formulario_calculadora{
     margin: 20px;
-    background-color: #cbc0d3;
+    background-color: #A4B7BA;
+    border-color: #0E402D;
+    border-width: 10px;
     border-radius: 15px;
     padding: 8px 5px;
 }
 
-#Resultado{
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 15px;
-    background-color: #cbc0d3;
-    font-size: 1.1rem;
+.li_formulario{
+    list-style: none;
 }
 
+#Resultado, #Recomendacion{
+    padding: 8px 20px;
+    border-radius: 15px;
+    border-color: #9FCC2E;
+    font-size: 1.1rem;
+    background-color: #9FCC2E;
+    margin: 2px;
+}
+
+.div_resultado, .div_recomendacion {
+    display: none;
+}
+
+.div_resultadoActive, .div_recomendacionActive {
+    display: inline-block;
+}
 
 #boton_calcular{
     border-radius: 10px;
     padding: 5px 12px;
     background-color: white;
-    border-color: #8e9aaf ;
+    border-color: #9FCC2E ;
+    color: #9FCC2E;
 }
+
+.div_sugerencia{
+    display: none;
+}
+.div_sugerenciaActive{
+    display: inline-block;
+    margin: 20px;
+    background-color: #A4B7BA;
+    border-color: #0E402D;
+    border-width: 10px;
+    border-radius: 15px;
+    padding: 8px 5px;
+}
+

@@ -12,30 +12,51 @@
         <h1 class="h1_header">Calcula acá el tiempo de tu próxima carrera</h1>
     </header>
     <main>
-        <div id="saludo_box">
-            <input type="text" id="nombre" class="saludo"> 
-            <button id="boton_saludar" class="saludo">Saludar</button>
-        </div>    
         <div class="formulario_calculadora">
             <h2>Empecemos con el pronóstico</h2>
             <p>Ingresa el tiempo en que recorres un km a máxima velocidad en minutos</p>
-            <input type="number" id="VAM"> 
+            <input type="number" id="VAM" placeholder="5" required>
             <p>Ingresa la distancia a recorrer en km</p>
-            <input type="number" id="distancia">
-            <p>Ingresa 1,2,3 según la modalidad</p>
+            <input type="number" id="distancia" placeholder="10" required>
+            <p>Elegí la modalidad</p>
+            <!-- <p>Ingresa 1,2,3 según la modalidad</p>
             <ul>
-                <li>1- Calle</li>
-                <li>2- Trail</li>
-                <li>3- Híbrido</li>
-            </ul>
-            <input type="number" id="modalidad">
+                <li class="li_formulario">1- Calle</li>
+                <li class="li_formulario">2- Trail</li>
+                <li class="li_formulario">3- Híbrido</li>
+            </ul> -->
+            <select id="modalidad">
+                <option value="1" >Calle</option>
+                <option value="2">Trail</option>
+                <option value="3">Hibrida</option>
+            </select>
+            <!-- <input type="number" id="modalidad"> -->
             <button id="boton_calcular">Calcular</button>
         </div>
 
-        <div id="Resultado"></div>
-        <div id="Recomendacion"></div>
+        <div id="Resultado" class="div_resultado"></div>
+        <div id="Recomendacion" class="div_recomendacion"></div>
 
-
+        <button id="boton_habilitar_sugerencia"> Quiero sugerir una recomendación</button>
+        <div id="Sugerencia" class="div_sugerencia">
+            <h3>Completa acá los datos de tu sugerencia</h3>
+            <p> Nombre del libro</p>
+            <input type="text" id="sugerencia_nombre" placeholder="Correr, comer, vivir" required>
+            <p> Categoria del libro</p required>
+            <select id="sugerencia_modalidad">
+                <option value="Calle">Calle</option>
+                <option value="Trail">Trail</option>
+                <option value="Ninguna">Ninguna</option>
+            </select>
+            <p> Autor del libro</p required>
+            <input type="text" id="sugerencia_autor">
+            <p> Link del libro</p>
+            <textarea class="form-control" placeholder="https://" rows="2" id="sugerencia_link"></textarea>
+            <button id="boton_enviar_sugerencia" type="submit">Enviar</button>
+        </div>
+        <!-- <div id="Sugerencias_enviadas">
+            <button id="boton_ver_sugerencia" type="submit">Ver mis sugerencias</button>
+        </div> -->
     </main>
     <script src="functions.js"></script>
 </body>
