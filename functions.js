@@ -209,25 +209,27 @@ botonEnviarSugerencia.addEventListener("click", function(){
                       "autor": autorSugerencia.value,
                       "link": linkSugerencia.value,
                     }
+                    
+    array_sugerencias.push(sugerencias);
+    let sugerencias_JSON = JSON.stringify (array_sugerencias);
+    localStorage.setItem("sugerencias", sugerencias_JSON );
 
-    let sugerencias_JSON = JSON.stringify (sugerencias);
-    array_sugerencias.push(sugerencias_JSON);
-    localStorage.setItem("sugerencias", array_sugerencias );
+    let formularioSugerenciasEnviadas = document.getElementById("Sugerencias_enviadas");
+    formularioSugerenciasEnviadas.className =  "div_sugerencias_enviadasActive";
+
+    let BotonSugerenciasEnviadas = document.getElementById("boton_ver_sugerencia");
+    BotonSugerenciasEnviadas.className =  "div_sugerencias_enviadasActive";
 });
 
-// let botonVerSugerencia = document.getElementById("boton_ver_sugerencia");
+let botonVerSugerencia = document.getElementById("boton_ver_sugerencia");
 
-// botonVerSugerencia.addEventListener("click", function(){
-//     let sugerenciasEnviadas = localStorage.getItem("sugerencias");
-//     for (let sugerencia of sugerenciasEnviadas){
-//         console.log(sugerencia)
-//     }})
-//     ; 
+botonVerSugerencia.addEventListener("click", function(){
+    let sugerenciasEnviadas = localStorage.getItem("sugerencias");
+    let listaSugerenciasEnviadas = document.createElement("sugerenciasEnviadasLista");
+    listaSugerenciasEnviadas.innerHTML = (sugerenciasEnviadas);
+    Sugerencias_enviadas.append(listaSugerenciasEnviadas);
+    let BotonSugerenciasEnviadas = document.getElementById("boton_ver_sugerencia");
+    BotonSugerenciasEnviadas.className =  "div_sugerencias_enviadas";
+}); 
 
-//    sugerenciasEnviadas.forEach (el => {
-//        let listaSugerenciasEnviadas = document.createElement("sugerenciasEnviadas");
-//        listaSugerenciasEnviadas.innerHTML = ("Nos recomendaste: ") + el.nombre +  el.autor + el.modalidad + el.link;
-//        console.log(listaSugerenciasEnviadas);
-//        Sugerencias_enviadas.append(listaSugerenciasEnviadas);
-//      })
 

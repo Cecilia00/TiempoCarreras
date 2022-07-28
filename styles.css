@@ -76,3 +76,10 @@ body{
     padding: 8px 5px;
 }
 
+.div_sugerencias_enviadas{
+    display: none;
+}
+
+.div_sugerencias_enviadasActive{
+    display: inline-block;
+}
