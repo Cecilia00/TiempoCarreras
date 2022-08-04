@@ -30,87 +30,54 @@ const recomendacion = [
     }]
 const array_sugerencias = [];
 
+const formulas =
+[
+    {
+        distance: [1,5],
+        formula: 1.1
+    },
+    {
+        distance: [6,10],
+        formula: 1.3
+    },
+    {
+        distance: [11,21],
+        formula: 1.4
+    },
+    {
+        distance: [22,42],
+        formula: 1.6
+    },
+]
+const getFormula = (distance) =>
+
+{
+    for (const element of formulas)
+    if (distance >= element.distance[0] && distance <=element.distance[1])
+    {
+        return element.formula;
+    }
+}
+
+
 // DECLARACIÓN DE FUNCIONES 
 
 // FUNCIONES CALCULO 
-
-function calcularTiempoTrail (distancia,VAM){
-    if (distancia <= 5){ 
-        return  VAM * 1.1 * distancia
-    }
-
-    else if  (distancia >5 && distancia<=10 ){
-        return  VAM * 1.3 * distancia
-    }
-
-    else if  (distancia >10 && distancia<=21 ){
-        return  VAM * 1.4 * distancia
-    }
-
-    else if  (distancia >10 && distancia<=21 ){
-        return  VAM * 1.5 * distancia
-    }
-
-    else if  (distancia >21 && distancia<=42 ){
-        return  VAM * 1.6 * distancia
-    }
-
-    else {
-        return  VAM * 1.8 * distancia
-    }
+function calcularTiempoCalle (distancia, VAM){
+    let formula =getFormula(distancia);
+    return VAM * formula * distancia;
 }
 
-function calcularTiempoCalle (distancia,VAM){
-    if (distancia <= 5){ 
-        return  VAM * 1.1 * distancia
-    }
-
-    else if  (distancia >5 && distancia<=10 ){
-        return  VAM * 1.3 * distancia
-    }
-
-    else if  (distancia >10 && distancia<=21 ){
-        return  VAM * 1.4 * distancia
-    }
-
-    else if  (distancia >10 && distancia<=21 ){
-        return  VAM * 1.5 * distancia
-    }
-
-    else if  (distancia >21 && distancia<=42 ){
-        return  VAM * 1.6 * distancia
-    }
-
-    else {
-        return  VAM * 1.8 * distancia
-    }
+function calcularTiempoTrail (distancia, VAM){
+    let formula =getFormula(distancia);
+    return VAM * formula * distancia*1.8;
 }
 
-function calcularTiempoHibrido (distancia,VAM){
-    if (distancia <= 5){ 
-        return  VAM * 1.1 * distancia
-    }
-
-    else if  (distancia >5 && distancia<=10 ){
-        return  VAM * 1.3 * distancia
-    }
-
-    else if  (distancia >10 && distancia<=21 ){
-        return  VAM * 1.4 * distancia
-    }
-
-    else if  (distancia >10 && distancia<=21 ){
-        return  VAM * 1.5 * distancia
-    }
-
-    else if  (distancia >21 && distancia<=42 ){
-        return  VAM * 1.6 * distancia
-    }
-
-    else {
-        return  VAM * 1.8 * distancia
-    }
+function calcularTiempoHibrido (distancia, VAM){
+    let formula =getFormula(distancia);
+    return VAM * formula * distancia*1.4;
 }
+
 
 // FUNCIONES RECOMENDACIONES 
 
@@ -153,7 +120,7 @@ botonCalcular.addEventListener("click", function (){
 
         case 2:
             let mensajeResultadoTrail= document.getElementById("Resultado");
-            mensajeResultadoTrail.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
+            mensajeResultadoTrail.innerHTML = ("Vas a tardar ")+ calcularTiempoTrail (distancia,VAM) + (" minutos");
             mensajeResultadoTrail.className =  "div_resultadoActive";           
 
             let recomendacion_filter_trail = recomendacion.filter (categoria_recomendacion_trail);
@@ -168,7 +135,7 @@ botonCalcular.addEventListener("click", function (){
 
         case 3:            
             let mensajeResultadoHibrido = document.getElementById("Resultado");
-            mensajeResultadoHibrido.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
+            mensajeResultadoHibrido.innerHTML = ("Vas a tardar ")+ calcularTiempoHibrido (distancia,VAM) + (" minutos");
             mensajeResultadoHibrido.className =  "div_resultadoActive";            
 
 
@@ -209,7 +176,12 @@ botonEnviarSugerencia.addEventListener("click", function(){
                       "autor": autorSugerencia.value,
                       "link": linkSugerencia.value,
                     }
-                    
+                  
+    nombreSugerencia.value ="";
+    modalidadSugerencia.value="Calle";
+    autorSugerencia.value= "";
+    linkSugerencia.value= "";
+
     array_sugerencias.push(sugerencias);
     let sugerencias_JSON = JSON.stringify (array_sugerencias);
     localStorage.setItem("sugerencias", sugerencias_JSON );
@@ -219,17 +191,36 @@ botonEnviarSugerencia.addEventListener("click", function(){
 
     let BotonSugerenciasEnviadas = document.getElementById("boton_ver_sugerencia");
     BotonSugerenciasEnviadas.className =  "div_sugerencias_enviadasActive";
+
+    Toastify({
+        text: "Muchas gracias! Recibimos tu sugerencia. Próximamente la revisaremos para agregarla a nuestra librería",
+        duration: 5000,
+        gravity: "bottom",
+        style:{
+            background: "#9FCC2E",
+        },
+    }).showToast();
 });
 
 let botonVerSugerencia = document.getElementById("boton_ver_sugerencia");
-
 botonVerSugerencia.addEventListener("click", function(){
-    let sugerenciasEnviadas = localStorage.getItem("sugerencias");
+    let sugerenciasEnviadas = JSON.parse(localStorage.getItem("sugerencias"));
     let listaSugerenciasEnviadas = document.createElement("sugerenciasEnviadasLista");
-    listaSugerenciasEnviadas.innerHTML = (sugerenciasEnviadas);
+    let html = '';
+     for (const sugerencia of sugerenciasEnviadas)
+     {
+         html+=`
+             ${sugerencia.nombre}
+             ${sugerencia.modalidad}
+             ${sugerencia.autor}
+             ${sugerencia.link}
+
+
+         `;
+     }
+    
+    listaSugerenciasEnviadas.innerHTML = html;
     Sugerencias_enviadas.append(listaSugerenciasEnviadas);
-    let BotonSugerenciasEnviadas = document.getElementById("boton_ver_sugerencia");
+   let BotonSugerenciasEnviadas = document.getElementById("boton_ver_sugerencia");
     BotonSugerenciasEnviadas.className =  "div_sugerencias_enviadas";
-}); 
-
-
+ }); 

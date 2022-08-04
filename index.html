@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pronóstico de carreras</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 </head>
 <body>
     <header class="header">
@@ -19,18 +21,11 @@
             <p>Ingresa la distancia a recorrer en km</p>
             <input type="number" id="distancia" placeholder="10" required>
             <p>Elegí la modalidad</p>
-            <!-- <p>Ingresa 1,2,3 según la modalidad</p>
-            <ul>
-                <li class="li_formulario">1- Calle</li>
-                <li class="li_formulario">2- Trail</li>
-                <li class="li_formulario">3- Híbrido</li>
-            </ul> -->
             <select id="modalidad">
                 <option value="1" >Calle</option>
                 <option value="2">Trail</option>
                 <option value="3">Hibrida</option>
             </select>
-            <!-- <input type="number" id="modalidad"> -->
             <button id="boton_calcular">Calcular</button>
         </div>
 
@@ -58,6 +53,7 @@
             <button id="boton_ver_sugerencia" type="submit">Ver mis sugerencias</button>
         </div>
     </main>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="functions.js"></script>
 </body>
 </html>
