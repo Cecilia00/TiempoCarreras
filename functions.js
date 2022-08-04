@@ -194,7 +194,7 @@ botonEnviarSugerencia.addEventListener("click", function(){
 
     Toastify({
         text: "Muchas gracias! Recibimos tu sugerencia. Próximamente la revisaremos para agregarla a nuestra librería",
-        duration: 5000,
+        duration: 3500,
         gravity: "bottom",
         style:{
             background: "#9FCC2E",
