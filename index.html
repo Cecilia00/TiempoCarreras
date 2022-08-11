@@ -15,13 +15,13 @@
     </header>
     <main>
         <div class="formulario_calculadora">
-            <h2>Empecemos con el pronóstico</h2>
-            <p>Ingresa el tiempo en que recorres un km a máxima velocidad en minutos</p>
-            <input type="number" id="VAM" placeholder="5" required>
-            <p>Ingresa la distancia a recorrer en km</p>
-            <input type="number" id="distancia" placeholder="10" required>
-            <p>Elegí la modalidad</p>
-            <select id="modalidad">
+            <h2 class="form_text">Empecemos con el pronóstico</h2>
+            <p class="form_text">¿En cuántos minutos recorres un kilometro a máxima velocidad?</p>
+            <input type="number" class="form_input"id="VAM" placeholder="5" required>
+            <p class="form_text">¿Cuántos kilometros tiene el recorrido de la carrera?</p>
+            <input type="number" class="form_input" id="distancia" placeholder="10" required>
+            <p class="form_text">Elegí la modalidad</p>
+            <select id="modalidad" class="form_input">
                 <option value="1" >Calle</option>
                 <option value="2">Trail</option>
                 <option value="3">Hibrida</option>
@@ -30,7 +30,9 @@
         </div>
 
         <div id="Resultado" class="div_resultado"></div>
-        <div id="Recomendacion" class="div_recomendacion"></div>
+        <div id="Recomendacion" class="div_recomendacion">
+            <button id="boton_habilitar_sugerencia"> Quiero sugerir una recomendación</button>
+        </div>
 
         <button id="boton_habilitar_sugerencia"> Quiero sugerir una recomendación</button>
         <div id="Sugerencia" class="div_sugerencia">
@@ -52,6 +54,10 @@
         <div id="Sugerencias_enviadas" class="div_sugerencias_enviadas">
             <button id="boton_ver_sugerencia" type="submit">Ver mis sugerencias</button>
         </div>
+        <!-- <img src="images/image1.svg" alt="Dibujo de mujer levantando pesas" id="imagen1"> -->
+        <img src="images/image2.svg" alt="Dibujo de hombre corriendo" id="imagen2">
+        <img src="images/image3.svg" alt="Dibujo de hombre corriendo"  id="imagen3">
+
     </main>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="functions.js"></script>

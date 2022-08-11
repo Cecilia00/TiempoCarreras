@@ -4,11 +4,13 @@
     box-sizing: border-box;
 }
 .header{
-    background-color: white ;
+    background-color: rgb(255, 255, 255) ;
+    box-shadow: 0px 0px 8px 5px  rgb(152, 151, 151);
+    width: 100%;
 }
 
 body{
-    background-color:  #d3d7d6;
+    background-color:  #fafafa;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
@@ -16,26 +18,57 @@ body{
 .h1_header{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   padding: 15px;
-  color: #295135;
+  color: #EC9F05;
 }
 
 #nombre{
     display: block;
 }
 
+main{
+    display: flex;
+    justify-content: center;
+}
 .formulario_calculadora{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    max-width: max-content;
+    justify-self: center;
     margin: 20px;
-    background-color: #A4B7BA;
+    background-color: #F5BB00;
     border-color: #0E402D;
     border-width: 10px;
     border-radius: 15px;
-    padding: 8px 5px;
+    padding: 20px 30px;
+    box-shadow: 5px 5px 6px 4px  rgb(152, 151, 151);
+
+}
+.form_input{
+    margin: 5px;
+    border-radius: 10px;
+    min-height: 1.3rem;
+    padding: 5px;
+    border-color: #0E402D;
 }
 
-.li_formulario{
-    list-style: none;
+.form_text{
+    margin: 5px;
+}
+#boton_calcular{
+    display: block;
+    border-radius: 10px;
+    padding: 5px 12px;
+    background-color: white;
+    border-color: #8EA604;
+    color: #8EA604;
+    box-shadow: 2px 2px 2px 2px  rgba(106, 105, 105, 0.704);
+    margin: 10px 0px 2px;
+    min-width: 110px;
+    min-height: 30px;
 }
 
 #Resultado, #Recomendacion{
@@ -47,20 +80,17 @@ body{
     margin: 2px;
 }
 
+#boton_habilitar_sugerencia{
+    display: none;
+}
+
 .div_resultado, .div_recomendacion {
     display: none;
 }
 
 .div_resultadoActive, .div_recomendacionActive {
     display: inline-block;
-}
-
-#boton_calcular{
-    border-radius: 10px;
-    padding: 5px 12px;
-    background-color: white;
-    border-color: #9FCC2E ;
-    color: #9FCC2E;
+    width: 100%;
 }
 
 .div_sugerencia{
@@ -83,3 +113,29 @@ body{
 .div_sugerencias_enviadasActive{
     display: inline-block;
 };
+
+#imagen1{
+    position: relative;
+    width: 10%;
+}
+
+#imagen2{
+    width: 15%;
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    left: 80%;
+    top:70%;
+}
+
+#imagen3{
+    width: 15%;
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    left: 5%;
+    top:20%;
+    
+}
