@@ -230,7 +230,11 @@ fetch("proximascarreras.json")
   .then(response=>response.json())
   .then (data => console.log(data))
 
-let listacarreras = async function(){
-    let resultado_fetch = await (await fetch ("proximascarreras.json")).json();
-    console.log(resultado_fetch);
-} 
+let resultado = async function(){
+    let resultado_fetch = await fetch("proximascarreras.json");
+    let listaCarrerasFetch = document.createElement("listaCarrerasFetch");
+    listaCarrerasFetch.innerHTML = resultado_fetch;
+    Lista_carreras.append(listaCarrerasFetch);
+}
+
+resultado();
