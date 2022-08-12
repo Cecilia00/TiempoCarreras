@@ -221,7 +221,7 @@ botonVerSugerencia.addEventListener("click", function(){
     
     listaSugerenciasEnviadas.innerHTML = html;
     Sugerencias_enviadas.append(listaSugerenciasEnviadas);
-   let BotonSugerenciasEnviadas = document.getElementById("boton_ver_sugerencia");
+    let BotonSugerenciasEnviadas = document.getElementById("boton_ver_sugerencia");
     BotonSugerenciasEnviadas.className =  "div_sugerencias_enviadas";
  }); 
 
@@ -235,4 +235,6 @@ botonVerSugerencia.addEventListener("click", function(){
         },
     })
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) = async function show_fetch() {document.createElement("texto_fetch");
+    texto_fetch.innerHTML = data;
+    element.append(texto_fetch);})
