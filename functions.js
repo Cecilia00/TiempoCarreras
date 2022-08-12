@@ -28,6 +28,7 @@ const recomendacion = [
         link:"Otro",
 
     }]
+
 const array_sugerencias = [];
 
 const formulas =
@@ -225,16 +226,11 @@ botonVerSugerencia.addEventListener("click", function(){
     BotonSugerenciasEnviadas.className =  "div_sugerencias_enviadas";
  }); 
 
- fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify({
-            title: 'Gracias por usar nuestra web',
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
-    .then((response) => response.json())
-    .then((data) = async function show_fetch() {document.createElement("texto_fetch");
-    texto_fetch.innerHTML = data;
-    element.append(texto_fetch);})
+fetch("proximascarreras.json")
+  .then(response=>response.json())
+  .then (data => console.log(data))
+
+let listacarreras = async function(){
+    let resultado_fetch = await (await fetch ("proximascarreras.json")).json();
+    console.log(resultado_fetch);
+} 
