@@ -215,8 +215,6 @@ botonVerSugerencia.addEventListener("click", function(){
              ${sugerencia.modalidad}
              ${sugerencia.autor}
              ${sugerencia.link}
-
-
          `;
      }
     
@@ -226,15 +224,19 @@ botonVerSugerencia.addEventListener("click", function(){
     BotonSugerenciasEnviadas.className =  "div_sugerencias_enviadas";
  }); 
 
-fetch("proximascarreras.json")
-  .then(response=>response.json())
-  .then (data => console.log(data))
 
 let resultado = async function(){
-    let resultado_fetch = await fetch("proximascarreras.json");
+    let resultado_fetch = await fetch("proximascarreras.json")
+    .then(response=>response.json())
     let listaCarrerasFetch = document.createElement("listaCarrerasFetch");
-    listaCarrerasFetch.innerHTML = resultado_fetch;
+    let html = '';
+    html += `
+     ${resultado_fetch.nombre}
+     ${resultado_fetch.lugar}
+     `;
+    listaCarrerasFetch.innerHTML = html;
     Lista_carreras.append(listaCarrerasFetch);
+    console.log(resultado_fetch);
 }
 
 resultado();
