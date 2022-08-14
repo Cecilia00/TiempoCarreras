@@ -236,7 +236,6 @@ let resultado = async function(){
      `;
     listaCarrerasFetch.innerHTML = html;
     Lista_carreras.append(listaCarrerasFetch);
-    console.log(resultado_fetch);
 }
 
 resultado();
