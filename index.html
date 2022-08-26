@@ -14,6 +14,7 @@
         <h1 class="h1_header">Calcula acá el tiempo de tu próxima carrera</h1>
     </header>
     <main>
+        <!-- CALCULADORA -->
         <div class="formulario_calculadora">
             <h2 class="form_text">Empecemos con el pronóstico</h2>
             <p class="form_text">¿En cuántos minutos recorres un kilometro a máxima velocidad?</p>
@@ -29,35 +30,42 @@
             <button id="boton_calcular">Calcular</button>
         </div>
 
+        <!-- RESULTADO CALCULO -->
         <div id="Resultado" class="div_resultado"></div>
-        <div id="Recomendacion" class="div_recomendacion">
-            <button id="boton_habilitar_sugerencia"> Quiero sugerir una recomendación</button>
-        </div>
 
-        <button id="boton_habilitar_sugerencia"> Quiero sugerir una recomendación</button>
+        <!-- RECOMENDACION LIBROS -->
+        <div id="RecomendacionContainer" class="div_recomendacion">
+            <div id="Recomendacion"></div>
+            <button id="boton_habilitar_sugerencia" class= "Boton_sugerencias"> Quiero sugerir una recomendación</button>
+        </div>
+        <!-- SUGERENCIAS DE RECOMENDACIONES -->
         <div id="Sugerencia" class="div_sugerencia">
             <h3>Completa acá los datos de tu sugerencia</h3>
             <p> Nombre del libro</p>
-            <input type="text" id="sugerencia_nombre" placeholder="Correr, comer, vivir" required>
+            <input type="text" class="form_input" id="sugerencia_nombre" placeholder="Correr, comer, vivir" required>
             <p> Categoria del libro</p required>
-            <select id="sugerencia_modalidad">
+            <select id="sugerencia_modalidad" class="form_input">
                 <option value="Calle">Calle</option>
                 <option value="Trail">Trail</option>
                 <option value="Ninguna">Ninguna</option>
             </select>
             <p> Autor del libro</p required>
-            <input type="text" id="sugerencia_autor">
+            <input type="text"  class="form_input" id="sugerencia_autor">
             <p> Link del libro</p>
-            <textarea class="form-control" placeholder="https://" rows="2" id="sugerencia_link"></textarea>
+            <textarea class="form-control" class="form_input" placeholder="https://" rows="2" id="sugerencia_link"></textarea>
             <button id="boton_enviar_sugerencia" type="submit">Enviar</button>
         </div>
         <div id="Sugerencias_enviadas" class="div_sugerencias_enviadas">
-            <button id="boton_ver_sugerencia" type="submit">Ver mis sugerencias</button>
+            <button id="boton_ver_sugerencia"  class= "Boton_sugerencias" type="submit">Ver mis sugerencias</button>
         </div>
-        <div>
-            <p> Próxima carrera en el calendario</p>
+
+        <!-- PROXIMAS CARRERAS -->
+        <div class="div_proximas_carreras">
+            <p class="p_subtitle"> Próximas carreras en el calendario</p>
             <div id="Lista_carreras"></div>
         </div>
+        
+        <!-- IMAGENES -->
         <!-- <img src="images/image1.svg" alt="Dibujo de mujer levantando pesas" id="imagen1"> -->
         <img src="images/image2.svg" alt="Dibujo de hombre corriendo" id="imagen2">
         <img src="images/image3.svg" alt="Dibujo de hombre corriendo"  id="imagen3">

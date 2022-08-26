@@ -108,14 +108,23 @@ botonCalcular.addEventListener("click", function (){
         case 1: 
             let mensajeResultadoCalle = document.getElementById("Resultado");
             mensajeResultadoCalle.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
-            mensajeResultadoCalle.className =  "div_resultadoActive";            
+            mensajeResultadoCalle.className =  "div_resultadoActive";       
+            let recomendacionFinal = document.getElementById ("Recomendacion");
+            recomendacionFinal.innerHTML = `<span class=""> Te sugerimos`;  
 
-            let recomendacion_filter_calle = recomendacion.filter (categoria_recomendacion_calle);
-            recomendacion_filter_calle.forEach (el => {
-                let recomendacionFinal = document.getElementById ("Recomendacion");
-                recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
-                recomendacionFinal.className =  "div_recomendacionActive";
-            })
+            // let recomendacion_filter_calle = recomendacion.filter (categoria_recomendacion_calle);
+            recomendacion.filter(categoria_recomendacion_calle).forEach (el => {
+                let html =`
+                        ${el.nombre}
+                        ${el.categoria}
+                        ${el.autor}
+                    `;
+            recomendacionFinal.innerHTML += html;
+                });
+               
+                // recomendacionFinal.innerHTML = html;
+                let recomendacionFinalContainer = document.getElementById ("RecomendacionContainer");
+                recomendacionFinalContainer.className =  "div_recomendacionActive";
 
             break;
 
@@ -128,7 +137,8 @@ botonCalcular.addEventListener("click", function (){
             recomendacion_filter_trail.forEach (el => {
                 let recomendacionFinal = document.getElementById ("Recomendacion");
                 recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
-                recomendacionFinal.className =  "div_recomendacionActive";
+                let recomendacionFinalContainer = document.getElementById ("RecomendacionContainer");
+                recomendacionFinalContainer.className =  "div_recomendacionActive";
             })
             
             
@@ -144,7 +154,8 @@ botonCalcular.addEventListener("click", function (){
             recomendacion_filter_hibrida.forEach (el => {
                 let recomendacionFinal = document.getElementById ("Recomendacion");
                 recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
-                recomendacionFinal.className =  "div_recomendacionActive";
+                let recomendacionFinalContainer = document.getElementById ("RecomendacionContainer");
+                recomendacionFinalContainer.className =  "div_recomendacionActive";
             })
             
             break; 
@@ -220,8 +231,7 @@ botonVerSugerencia.addEventListener("click", function(){
     
     listaSugerenciasEnviadas.innerHTML = html;
     Sugerencias_enviadas.append(listaSugerenciasEnviadas);
-    let BotonSugerenciasEnviadas = document.getElementById("boton_ver_sugerencia");
-    BotonSugerenciasEnviadas.className =  "div_sugerencias_enviadas";
+    botonVerSugerencia.className = "div_sugerencias_enviadas"
  }); 
 
 
@@ -229,12 +239,13 @@ let resultado = async function(){
     let resultado_fetch = await fetch("proximascarreras.json")
     .then(response=>response.json())
     let listaCarrerasFetch = document.createElement("listaCarrerasFetch");
-    let html = '';
-    html += `
-     ${resultado_fetch.nombre}
-     ${resultado_fetch.lugar}
-     `;
-    listaCarrerasFetch.innerHTML = html;
+    resultado_fetch.forEach(el =>{   
+    listaCarrerasFetch.innerHTML += `
+        ${"Carrera:" + el.nombre}
+        ${"Provincia:" + el.provincia}
+        ${"Fecha:" + el.fecha}
+        `;     
+    })
     Lista_carreras.append(listaCarrerasFetch);
 }
 

@@ -1,1 +1,9 @@
-{"nombre":"Maratón Buenos Aires", "lugar":"Buenos Aires"}
+[
+    {"nombre":"Destino Madryn Carrera de Aventura Edición 2022", "provincia":"Chubut", "fecha": "04/09/2022" },
+    {"nombre":"Maratón Buenos Aires", "provincia":"Buenos Aires", "fecha": "18/09/2022" }, 
+    {"nombre":"McDonald's 5K", "provincia":"Buenos Aires", "fecha": "15/10/2022" }
+]
+    
+    
+
+
