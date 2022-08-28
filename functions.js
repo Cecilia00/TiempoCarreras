@@ -108,23 +108,20 @@ botonCalcular.addEventListener("click", function (){
         case 1: 
             let mensajeResultadoCalle = document.getElementById("Resultado");
             mensajeResultadoCalle.innerHTML = ("Vas a tardar ")+ calcularTiempoCalle (distancia,VAM) + (" minutos");
-            mensajeResultadoCalle.className =  "div_resultadoActive";       
-            let recomendacionFinal = document.getElementById ("Recomendacion");
-            recomendacionFinal.innerHTML = `<span class=""> Te sugerimos`;  
+            mensajeResultadoCalle.className =  "div_resultadoActive";    
 
-            // let recomendacion_filter_calle = recomendacion.filter (categoria_recomendacion_calle);
+            let recomendacionFinalCalle = document.getElementById ("Recomendacion");
+            recomendacionFinalCalle.innerHTML = `Te sugerimos`;  
             recomendacion.filter(categoria_recomendacion_calle).forEach (el => {
                 let html =`
                         ${el.nombre}
                         ${el.categoria}
                         ${el.autor}
                     `;
-            recomendacionFinal.innerHTML += html;
+            recomendacionFinalCalle.innerHTML += html;
                 });
-               
-                // recomendacionFinal.innerHTML = html;
-                let recomendacionFinalContainer = document.getElementById ("RecomendacionContainer");
-                recomendacionFinalContainer.className =  "div_recomendacionActive";
+                let recomendacionFinalContainerCalle = document.getElementById ("RecomendacionContainer");
+                recomendacionFinalContainerCalle.className =  "div_recomendacionActive";
 
             break;
 
@@ -133,15 +130,19 @@ botonCalcular.addEventListener("click", function (){
             mensajeResultadoTrail.innerHTML = ("Vas a tardar ")+ calcularTiempoTrail (distancia,VAM) + (" minutos");
             mensajeResultadoTrail.className =  "div_resultadoActive";           
 
-            let recomendacion_filter_trail = recomendacion.filter (categoria_recomendacion_trail);
-            recomendacion_filter_trail.forEach (el => {
-                let recomendacionFinal = document.getElementById ("Recomendacion");
-                recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
-                let recomendacionFinalContainer = document.getElementById ("RecomendacionContainer");
-                recomendacionFinalContainer.className =  "div_recomendacionActive";
-            })
-            
-            
+            let recomendacionFinalTrail = document.getElementById ("Recomendacion");
+            recomendacionFinalTrail.innerHTML = `Te sugerimos`;  
+            recomendacion.filter(categoria_recomendacion_trail).forEach (el => {
+                let html =`
+                        ${el.nombre}
+                        ${el.categoria}
+                        ${el.autor}
+                    `;
+            recomendacionFinalTrail.innerHTML += html;
+                });
+                let recomendacionFinalContainerTrail = document.getElementById ("RecomendacionContainer");
+                recomendacionFinalContainerTrail.className =  "div_recomendacionActive";
+
             break;
 
         case 3:            
@@ -150,15 +151,20 @@ botonCalcular.addEventListener("click", function (){
             mensajeResultadoHibrido.className =  "div_resultadoActive";            
 
 
-            let recomendacion_filter_hibrida = recomendacion.filter (categoria_recomendacion_hibrida);
-            recomendacion_filter_hibrida.forEach (el => {
-                let recomendacionFinal = document.getElementById ("Recomendacion");
-                recomendacionFinal.innerHTML = ("Te recomendamos: ") + el.nombre + el.link;
-                let recomendacionFinalContainer = document.getElementById ("RecomendacionContainer");
-                recomendacionFinalContainer.className =  "div_recomendacionActive";
-            })
-            
-            break; 
+            let recomendacionFinalHibrida = document.getElementById ("Recomendacion");
+            recomendacionFinalHibrida.innerHTML = `Te sugerimos`;  
+            recomendacion.filter(categoria_recomendacion_hibrida).forEach (el => {
+                let html =`
+                        ${el.nombre}
+                        ${el.categoria}
+                        ${el.autor}
+                    `;
+                    recomendacionFinalHibrida.innerHTML += html;
+                });
+                let recomendacionFinalContainerHibrida = document.getElementById ("RecomendacionContainer");
+                recomendacionFinalContainerHibrida.className =  "div_recomendacionActive";
+
+            break;
 
         default: 
             alert ("opcion invalida");
